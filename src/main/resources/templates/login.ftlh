@@ -1,4 +1,4 @@
-<#--<!DOCTYPE html>-->
+<!DOCTYPE html>
 <#--<html lang="ru">-->
 <#--<head>-->
 <#--    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />-->
@@ -311,12 +311,12 @@
                                 </div>
                                 <form class="form-horizontal" action="/login" method="post">
 
-<#--                                    <c:if test="${auth_error != null}">-->
+<#--                                    <if auth_error??>-->
 <#--                                        <div style="width: 100%; position: relative; padding-bottom: 25px; color: red">${auth_error}</div>-->
-<#--                                    </c:if>-->
-
+<#--                                    </if>-->
+                                    <input type="hidden" name="_csrf" value="${_csrf.token}">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" placeholder="username">
+                                        <input type="text" class="form-control" name="email" autofocus="" autocapitalize="none" autocomplete="email" maxlength="150" id="email" placeholder="email">
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="form-group help">
