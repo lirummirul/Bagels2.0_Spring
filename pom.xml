@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0" -->
+<!--		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">-->
+<!--	<modelVersion>4.0.0</modelVersion>-->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.1.0</version>
-		<relativePath/> <!-- lookup parent from repository -->
-	</parent>
+<parent>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-parent</artifactId>
+	<version>2.2.5.RELEASE</version>
+	<relativePath />
+</parent>
 
 	<groupId>com.itis</groupId>
 	<artifactId>Bagels2</artifactId>
@@ -17,106 +21,341 @@
 	<name>Bagels2</name>
 	<description>Пекарня Bagels2</description>
 
-	<properties>
-		<java.version>17</java.version>
-	</properties>
 
-	<dependencies>
+<!--	<repositories>-->
+<!--	<repository>-->
+<!--		<id>java.net</id>-->
 
-		<dependency>
+<!--		<name>Java.net Repository</name>-->
+
+<!--		<url>https://maven.java.net/content/repositories/releases/</url>-->
+<!--	</repository>-->
+<!--	</repositories>-->
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>Maven Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+<properties>
+<!--	<!— Generic properties —>-->
+	<maven.compiler.source>1.8</maven.compiler.source>
+	<maven.compiler.target>1.8</maven.compiler.target>
+	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+<!--	<!— Spring —>-->
+	<spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+	<spring-security.version>5.3.0.RELEASE</spring-security.version>
+
+	<javax.servlet.jstl.version>1.2</javax.servlet.jstl.version>
+	<postgres.version>42.5.1</postgres.version>
+</properties>
+
+<dependencies>
+
+	<dependency>
+		<groupId>javax.persistence</groupId>
+		<artifactId>javax.persistence-api</artifactId>
+		<version>2.2</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-freemarker</artifactId>
+	</dependency>
+
+	<dependency>
+		<groupId>jakarta.persistence</groupId>
+		<artifactId>jakarta.persistence-api</artifactId>
+		<version>3.1.0</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-core</artifactId>
+		<version>5.4.30.Final</version>
+	</dependency>
+
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+		<version>${javax.servlet.jstl.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter</artifactId>
+		<version>${spring-boot.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-actuator</artifactId>
+		<version>${spring-boot.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-aop</artifactId>
+		<version>${spring-boot.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-jpa</artifactId>
+		<version>${spring-boot.version}</version>
+		<exclusions>
+			<exclusion>
+				<groupId>javax.persistence</groupId>
+				<artifactId>jakarta.persistence-api</artifactId>
+			</exclusion>
+		</exclusions>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-security</artifactId>
+		<version>${spring-boot.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-logging</artifactId>
+		<version>${spring-boot.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-validation</artifactId>
+		<version>${spring-boot.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+		<version>${spring-boot.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-tomcat</artifactId>
+		<version>${spring-boot.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.tomcat.embed</groupId>
+		<artifactId>tomcat-embed-jasper</artifactId>
+		<version>9.0.33</version>
+	</dependency>
+	<dependency>
+		<groupId>org.eclipse.jdt.core.compiler</groupId>
+		<artifactId>ecj</artifactId>
+		<version>4.6.1</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.security</groupId>
+		<artifactId>spring-security-taglibs</artifactId>
+		<version>${spring-security.version}</version>
+	</dependency>
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-devtools</artifactId>
+		<version>${spring-boot.version}</version>
+		<optional>true</optional>
+	</dependency>
+
+	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>${postgres.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.projectlombok</groupId>
+		<artifactId>lombok</artifactId>
+		<version>1.18.22</version>
+		<scope>compile</scope>
+	</dependency>
+	<dependency>
+		<groupId>com.squareup.okhttp3</groupId>
+		<artifactId>okhttp</artifactId>
+		<version>4.9.3</version>
+	</dependency>
+	<dependency>
+		<groupId>org.json</groupId>
+		<artifactId>json</artifactId>
+		<version>20220320</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springdoc</groupId>
+		<artifactId>springdoc-openapi-ui</artifactId>
+		<version>1.6.4</version>
+	</dependency>
+
+	<dependency>
+		<groupId>com.fasterxml.jackson.datatype</groupId>
+		<artifactId>jackson-datatype-hibernate5</artifactId>
+		<version>2.13.4</version>
+	</dependency>
+
+</dependencies>
+
+<build>
+	<plugins>
+<!--		<!— Running Spring Boot —>-->
+		<plugin>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-freemarker</artifactId>
-		</dependency>
+			<artifactId>spring-boot-maven-plugin</artifactId>
+			<version>2.2.4.RELEASE</version>
+			<configuration>
+				<mainClass>
+					com.itis.Bagels2.Bagels2Application
+				</mainClass>
+			</configuration>
+		</plugin>
+	</plugins>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mail</artifactId>
-		</dependency>
-
-		<!-- spring security -->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.security</groupId>-->
-<!--			<artifactId>spring-security-core</artifactId>-->
-<!--			<version>5.7.8</version>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.security</groupId>-->
-<!--			<artifactId>spring-security-config</artifactId>-->
-<!--			<version>5.7.8</version>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.security</groupId>-->
-<!--			<artifactId>spring-security-web</artifactId>-->
-<!--			<version>5.7.8</version>-->
-<!--		</dependency>-->
-
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-security</artifactId>-->
-<!--			<version>3.1.0</version>-->
-<!--		</dependency>-->
-
-		<!-- Lombok -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>1.18.20</version>
-		</dependency>
-
-		<!-- База данных -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.postgresql</groupId>
-			<artifactId>postgresql</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- Прочее -->
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>javax.servlet-api</artifactId>
-			<version>4.0.1</version>
-			<scope>provided</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>jakarta.persistence</groupId>
-			<artifactId>jakarta.persistence-api</artifactId>
-			<version>3.1.0</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>6.2.3.Final</version>
-		</dependency>
-
-	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-
+</build>
 </project>
+
+
+
+		<!--<?xml version="1.0" encoding="UTF-8"?>-->
+		<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
+		<!--		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+		<!--		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+		<!--	<modelVersion>4.0.0</modelVersion>-->
+
+		<!--	<parent>-->
+		<!--		<groupId>org.springframework.boot</groupId>-->
+		<!--		<artifactId>spring-boot-starter-parent</artifactId>-->
+		<!--		<version>2.2.5.RELEASE</version>-->
+		<!--		<relativePath/> &lt;!&ndash; lookup parent from repository &ndash;&gt;-->
+		<!--	</parent>-->
+
+		<!--	<groupId>com.itis</groupId>-->
+		<!--	<artifactId>Bagels2</artifactId>-->
+		<!--	<version>0.0.1-SNAPSHOT</version>-->
+		<!--	<name>Bagels2</name>-->
+		<!--	<description>Пекарня Bagels2</description>-->
+
+		<!--	<properties>-->
+		<!--		<java.version>1.8</java.version>-->
+		<!--		<spring-boot.version>2.2.5.RELEASE</spring-boot.version>-->
+		<!--		<spring-security.version>5.3.0.RELEASE</spring-security.version>-->
+
+		<!--	</properties>-->
+
+		<!--	<dependencies>-->
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.boot</groupId>-->
+		<!--			<artifactId>spring-boot-starter-freemarker</artifactId>-->
+		<!--		</dependency>-->
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.boot</groupId>-->
+		<!--			<artifactId>spring-boot-starter-web</artifactId>-->
+		<!--		</dependency>-->
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.boot</groupId>-->
+		<!--			<artifactId>spring-boot-devtools</artifactId>-->
+		<!--			<optional>true</optional>-->
+		<!--		</dependency>-->
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.boot</groupId>-->
+		<!--			<artifactId>spring-boot-starter-mail</artifactId>-->
+		<!--		</dependency>-->
+
+		<!--		&lt;!&ndash; spring security &ndash;&gt;-->
+		<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<groupId>org.springframework.security</groupId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<artifactId>spring-security-core</artifactId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<version>5.7.8</version>&ndash;&gt;-->
+		<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.security</groupId>-->
+		<!--			<artifactId>spring-security-config</artifactId>-->
+		<!--			<version>${spring-security.version}</version>-->
+		<!--		</dependency>-->
+
+		<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<groupId>org.springframework.security</groupId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<artifactId>spring-security-web</artifactId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<version>5.7.8</version>&ndash;&gt;-->
+		<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.boot</groupId>-->
+		<!--			<artifactId>spring-boot-starter-security</artifactId>-->
+		<!--			<version>${spring-boot.version}</version>-->
+		<!--		</dependency>-->
+
+		<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<groupId>org.springframework.security</groupId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<artifactId>spring-security-config</artifactId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<version>3.2.0.RELEASE</version>&ndash;&gt;-->
+		<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
+
+		<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<groupId>org.springframework.security</groupId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<artifactId>spring-security-crypto</artifactId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<version>6.1.0</version>&ndash;&gt;-->
+		<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
+
+		<!--		&lt;!&ndash; Lombok &ndash;&gt;-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.projectlombok</groupId>-->
+		<!--			<artifactId>lombok</artifactId>-->
+		<!--			<version>1.18.20</version>-->
+		<!--		</dependency>-->
+
+		<!--		&lt;!&ndash; База данных &ndash;&gt;-->
+		<!--		<dependency>-->
+		<!--			<groupId>org.springframework.boot</groupId>-->
+		<!--			<artifactId>spring-boot-starter-data-jpa</artifactId>-->
+		<!--		</dependency>-->
+
+		<!--		<dependency>-->
+		<!--			<groupId>org.postgresql</groupId>-->
+		<!--			<artifactId>postgresql</artifactId>-->
+		<!--			<scope>runtime</scope>-->
+		<!--		</dependency>-->
+
+		<!--		&lt;!&ndash; Прочее &ndash;&gt;-->
+		<!--		<dependency>-->
+		<!--			<groupId>javax.servlet</groupId>-->
+		<!--			<artifactId>javax.servlet-api</artifactId>-->
+		<!--			<version>4.0.1</version>-->
+		<!--			<scope>provided</scope>-->
+		<!--		</dependency>-->
+
+		<!--		<dependency>-->
+		<!--			<groupId>jakarta.persistence</groupId>-->
+		<!--			<artifactId>jakarta.persistence-api</artifactId>-->
+		<!--			<version>3.1.0</version>-->
+		<!--		</dependency>-->
+
+		<!--&lt;!&ndash;		<dependency>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<groupId>org.hibernate</groupId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<artifactId>hibernate-core</artifactId>&ndash;&gt;-->
+		<!--&lt;!&ndash;			<version>6.2.3.Final</version>&ndash;&gt;-->
+		<!--&lt;!&ndash;		</dependency>&ndash;&gt;-->
+
+		<!--	</dependencies>-->
+
+		<!--	<build>-->
+		<!--		<plugins>-->
+		<!--			<plugin>-->
+		<!--				<groupId>org.springframework.boot</groupId>-->
+		<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+		<!--			</plugin>-->
+		<!--		</plugins>-->
+		<!--	</build>-->
+
+		<!--</project>-->
+
