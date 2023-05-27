@@ -1,38 +1,4 @@
 <!DOCTYPE html>
-
-<#--<html lang="ru" xml:lang="ru" style="font-size: 16px;">-->
-<#--<head>-->
-
-<#--    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
-<#--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-<#--    <meta charset="utf-8">-->
-<#--    <meta name="keywords" content="01, 02, 03, 04, 05, 06">-->
-<#--    <meta name="description" content="">-->
-<#--    <title>Главная</title>-->
-<#--    <link rel="stylesheet" type="text/css" href="/Main.css">-->
-<#--    <link rel="stylesheet" href="/nicepage.css" media="screen">-->
-<#--    <link rel="stylesheet" href="/about.css" media="screen">-->
-<#--    <link rel="stylesheet" href="/Main.css" media="screen">-->
-<#--    <script class="u-script" type="text/javascript" src="/jquery.js" defer=""></script>-->
-<#--    <script class="u-script" type="text/javascript" src="/nicepage.js" defer=""></script>-->
-<#--    <meta name="generator" content="Nicepage 4.20.1, nicepage.com">-->
-<#--    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">-->
-<#--    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Kalam:300,400,700">-->
-
-<#--    <script type="application/ld+json">{-->
-<#--            "@context": "http://schema.org",-->
-<#--            "@type": "Organization",-->
-<#--            "name": "",-->
-<#--            "logo": "images/default-logo.png"-->
-<#--        }-->
-<#--    </script>-->
-
-<#--    <meta name="theme-color" content="#478ac9">-->
-<#--    <meta style="color: #0f0f0f" property="og:title" content="Главная">-->
-<#--    <meta property="og:type" content="website">-->
-
-<#--</head>-->
-
 <html lang="ru" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
@@ -105,18 +71,6 @@
         <br>
         <img src="/images/bagels.png" class="u-logo-image u-logo-image-1" alt="Yes">
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-            <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 1px;">
-                <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
-                    <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
-                    <svg class="u-svg-content" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect>
-                            <rect y="13" width="16" height="2"></rect>
-                        </g>
-                    </svg>
-                </a>
-            </div>
-
             <div class="u-nav-container">
                 <ul class="u-nav u-unstyled u-nav-1">
                     <li class="u-nav-item">
@@ -128,42 +82,17 @@
                     <li class="u-nav-item">
                         <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/basket" style="padding: 10px 20px; color: black">Корзина</a>
                     </li>
-                    <li class="u-nav-item">
-                        <a href="/signIn" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" style="padding: 10px 20px; color: black">Вход</a>
-                    </li>
-
-<#--                    <div>-->
-<#--                        <form action="/login" method="post">-->
-<#--                            <input type="submit" value="Выйти"/>-->
-<#--                        </form>-->
-<#--                    </div>-->
+                    <#if user.email??>
+                        <h3>Имя пользователя: <i>${user.name}</i></h3>
+                        <form action="/logout" method="post">
+                            <input type="hidden" name="_csrf" value="${_csrf.token}">
+                            <input type="submit" value="Выйти"/>
+                        </form>
+                    <#else>
+                        <a href="/login">Войти</a>
+                    </#if>
                 </ul>
             </div>
-
-            <div class="u-nav-container-collapse">
-                <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
-                    <div class="u-inner-container-layout u-sidenav-overflow">
-                        <div class="u-menu-close"></div>
-                        <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                            <li class="u-nav-item">
-                                <a  lang="ru" xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml" class="u-button-style u-nav-link" href="/main">Главная</a>
-                            </li>
-                            <li class="u-nav-item">
-                                <a  lang="ru" xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml" class="u-button-style u-nav-link" href="/about">О нас</a>
-                            </li>
-                            <li class="u-nav-item">
-                                <a  lang="ru" xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml"  class="u-button-style u-nav-link" href="/basket">Корзина</a>
-                            </li>
-                            <li class="u-nav-item">
-                                <a href="/login" class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base">Вход</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-            </div>
-
-
         </nav>
     </div>
 </header>
@@ -172,102 +101,42 @@
 <#--<%--------------------Секция с содержанием меню--------------------%>-->
 
 <section class="u-align-center u-black u-clearfix" id="carousel_5156">
-    <div class="container">
-        <img class="u-expand-resize u-expanded-width u-image u-image-1" src="/images/wdq-min1.jpg" alt="Yes">
-        <p style="color: white"> <b> <b>Пекарня создана людьми, но кушают здесь только Боги! </b></b></p>
-        <div class="u-section-1 u-align-left u-container-style u-list-item  u-repeater-item u-shape-rectangle">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1 u-list-item-1 ">
-                <#list menuList as menu>
-                    <div class="u-align-center u-border-radius-50 u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-1 u-shape-round u-group-1">
-                        <div class="u-container-layout u-valign-middle u-container-layout-2">
-                            <h1 class="u-custom-font u-text u-text-1">${menu.id}</h1>
-                        </div>
+    <img class="u-expand-resize u-expanded-width u-image u-image-1" src="/images/wdq-min1.jpg" alt="Yes">
+    <p style="color: white"> <b> <b>Пекарня создана людьми, но кушают здесь только Боги! </b></b></p>
+    <div class="text-white px-3 py-4 p-md-5 mx-md-4 container tekst_sverhu_kartinki" style="top: 10%; left: 9%">
+        <h1 class="mb-4">Меню: </h1>
+    </div>
+    <div class="u-section-1 u-align-left u-container-style u-list-item  u-repeater-item u-shape-rectangle">
+        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1 u-list-item-1 ">
+            <#list menuList as menu>
+                <div class="u-align-center u-border-radius-50 u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-1 u-shape-round u-group-1">
+                    <div class="u-container-layout u-valign-middle u-container-layout-2">
+                        <h1 class="u-custom-font u-text u-text-1">${menu.id}</h1>
                     </div>
-                    <h5 class="u-text u-text-body-alt-color u-text-2">${menu.name}</h5>
-                    <p class="u-text u-text-default u-text-grey-30 u-text-3">${menu.price_per_price} руб.</p>
-                    <a href="/main/${menu.id}" class="u-active-none u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-text-hover-grey-30 u-btn-1">learn more</a>
-                    <br>
-                </#list>
-            </div>
+                </div>
+                <h5 class="u-text u-text-body-alt-color u-text-2">${menu.name}</h5>
+                <p class="u-text u-text-default u-text-grey-30 u-text-3">${menu.price_per_price} руб.</p>
+                <a href="/main/${menu.id}" class="u-active-none u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-text-hover-grey-30 u-btn-1">learn more</a>
+                <br>
+            </#list>
+
+<#--            <#if usr.id == user_role.id && user_role == "ADMIN">-->
+<#--                <hr>-->
+<#--                <h3>Создать новый товар</h3>-->
+<#--                <form action="/main/create" method="post" enctype="multipart/form-data">-->
+<#--                    Название продукта: <input type="text" name="name"/><br><br>-->
+<#--                    Описание: <input type="text" name="description"/><br><br>-->
+<#--                    Цена: <input type="number" name="price_per_price"/><br><br>-->
+<#--                    <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<#--                    <input type="submit" value="Добавить товар"/>-->
+<#--                </form>-->
+<#--            </#if>-->
         </div>
     </div>
-
     <p class="u-align-center u-text u-text-grey-30 u-text-19">Пекарня от
         <a href="https://vk.com/lambertl" class="u-border-1 u-border-white u-btn u-button-style u-none u-text-grey-30 u-btn-7">Ладушки</a>
     </p>
 </section>
-
-
-
-<#--<body onload="document.getElementById('navbarDropdown').click(); document.getElementById('navbarDropdown').blur()">-->
-<#--<nav class="navbar sticky-top navbar-light bg-light navbar-expand-md">-->
-<#--    <a href="/profile" class="navbar-brand">Bagels</a>-->
-<#--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">-->
-<#--        <span class="navbar-toggler-icon"></span>-->
-<#--    </button>-->
-<#--    <c:if test="${user != null}">-->
-<#--        <div class="collapse navbar-collapse" id="navbarNav">-->
-<#--            <ul class="navbar-nav">-->
-<#--                <li class="nav-item"><a class="nav-link" href="/menus">Меню</a></li>-->
-<#--                <li class="nav-item"><a class="nav-link" href="/profile/menus/saved">Корзина</a></li>-->
-<#--            </ul>-->
-<#--            <div class="nav-item dropdown ml-auto">-->
-<#--                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"-->
-<#--                   data-toggle="dropdown"-->
-<#--                   aria-haspopup="true" aria-expanded="false">-->
-<#--                    ${user.getLogin()}-->
-<#--                </a>-->
-<#--                <div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-<#--                    <a style="text-decoration: underline" href="/profile"-->
-<#--                       class="dropdown-item">${user.getLogin()}</a>-->
-<#--                    <div class="dropdown-divider"></div>-->
-<#--                    <a style="color:red" href="/logout" class="dropdown-item">Выйти</a>-->
-<#--                </div>-->
-<#--            </div>-->
-<#--        </div>-->
-<#--    </c:if>-->
-<#--    <c:if test="${user == null}">-->
-<#--        <div class="collapse navbar-collapse" id="navbarNav">-->
-<#--            <ul class="navbar-nav">-->
-<#--                <li class="nav-item"><a class="nav-link" href="/menus">Меню</a></li>-->
-<#--            </ul>-->
-<#--            <a href="/login" class="nav-link ml-auto">Войти</a>-->
-<#--        </div>-->
-<#--    </c:if>-->
-<#--</nav>-->
-
-<#--<section class="u-align-center u-black u-clearfix u-section-1">-->
-<#--    <img class="u-expand-resize u-expanded-width u-image u-image-1" src="../images/wdq-min1.jpg" alt="Yes">-->
-<#--    <div class="text-white px-3 py-4 p-md-5 mx-md-4 container tekst_sverhu_kartinki" style="top: 10%; left: 9%">-->
-<#--        <h1 class="mb-4">Меню: </h1>-->
-<#--    </div>-->
-
-
-<#--    <div class="container tekst_sverhu_kartinki" style="top: 25%; left: 11%">-->
-<#--        <div class="row">-->
-<#--            <c:forEach items="${menus}" var="menu">-->
-<#--                <div class="col-lg-6 col-sm-12 col-12 col-xl-4 mb-1">-->
-<#--                    <div class="card" onclick="window.location.assign('/menu?id=${menu.getId()}')">-->
-<#--                        <div class="card-header font-weight-bold text-card sizeMenuMain">-->
-<#--                            ${menu.getName()}-->
-<#--                        </div>-->
-<#--                        <div class="card-body">-->
-<#--                            <div class="text-card card-text sizeMenu">-->
-<#--                                <c:if test="${menu.getDescription() != null}">-->
-<#--                                    ${menu.getDescription()}-->
-<#--                                </c:if>-->
-<#--                                <br>-->
-<#--                                <c:if test="${menu.getPrice_per_piece() != 0}">-->
-<#--                                    ${menu.getPrice_per_piece()} руб-->
-<#--                                </c:if>-->
-<#--                            </div>-->
-<#--                        </div>-->
-<#--                    </div>-->
-<#--                </div>-->
-<#--            </c:forEach>-->
-<#--        </div>-->
-<#--    </div>-->
-<#--</section>-->
 
 
 <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-c4fa">
@@ -276,7 +145,7 @@
     </div>
 </footer>
 <footer class="footer text-center podval1">
-    <p class="small mb-0">© ООО «Корпорация Bagels» Все права защищены 2022 </p>
+    <p class="small mb-0">© ООО «Корпорация Bagels» Все права защищены 2023 </p>
     <a href="https://github.com/lirummirul?tab=repositories" target="_blank">GitHub сайта</a>
     , создан при поддержке
     <a href="https://github.com/andreichev/itis-programming-java3" target="_blank">Михаила Дмитриевича</a>

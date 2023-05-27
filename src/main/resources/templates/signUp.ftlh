@@ -418,24 +418,35 @@
                                 </div>
                                 <form class="form-horizontal" action="/signUp" method="post">
 
+                                    <input type="hidden" name="_csrf" value="${_csrf.token}">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="username" maxlength="32" required id="id_username"
-                                               placeholder="Никнейм " oninput="pass_identity(); validate_username_usage($('#id_username').val())">
+                                        <input type="text" class="form-control" name="username" maxlength="32" required id="username"
+                                               placeholder="username">
+                                        <div id="username_validation"><i class="fa fa-user"></i></div>
+                                    </div>
 
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" name="email" maxlength="32" required id="id_username"
+                                               placeholder="email">
+                                        <div id="username_validation"><i class="fa fa-user"></i></div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="phone_num" maxlength="32" required id="phoneNum"
+                                               placeholder="phoneNum">
                                         <div id="username_validation"><i class="fa fa-user"></i></div>
                                     </div>
 
                                     <div class="form-group help">
                                         <input type="password" class="form-control" name="password" maxlength="32" required id="id_password"
-                                               placeholder="Пароль ">
+                                               placeholder="password">
                                         <i class="fa fa-lock"></i>
                                     </div>
 
-                                    <div class="form-group help">
-                                        <input type="password" class="form-control" name="password_repeat" maxlength="32" required
-                                               id="id_password_repeat" placeholder="Повторите пароль" oninput="pass_identity()">
-                                        <i class="fa fa-lock"></i>
-                                    </div>
+                                    <#if errorMessage??>
+                                        <h2 style="color: red">${errorMessage}</h2>
+                                    </#if>
+
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" id="id_button">Зарегистрироваться</button>
                                     </div>

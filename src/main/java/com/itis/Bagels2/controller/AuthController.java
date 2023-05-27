@@ -1,22 +1,17 @@
 package com.itis.Bagels2.controller;
 
-import com.itis.Bagels2.model.Role;
 import com.itis.Bagels2.model.User;
-import com.itis.Bagels2.repos.UserRepo;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.itis.Bagels2.service.UserService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Collections;
-import java.util.Map;
-
 
 @Controller
+@RequiredArgsConstructor
 public class AuthController {
-
-    @Autowired
-    private UserRepo userRepo;
+    private final UserService userService;
 
     @GetMapping("/login")
     public String login() {
@@ -30,21 +25,28 @@ public class AuthController {
 
     @GetMapping("/signUp")
     public String signUp() {
-        return "signUP";
+        return "signUp";
     }
 
     @PostMapping("/signUp")
-    public String addUser(User user, Map<String, Object> model) {
-        User userFromDb = userRepo.findByUsername(user.getUsername());
-
-//        if (userFromDb != null) {
-//            model.put("message", "User exists!");
-//            return "signUp";
-//        }
-
-        user.setRoles(Collections.singleton(Role.USER));
-        userRepo.save(user);
-
+    public String createUser(User user) {
+        userService.createUser(user);
         return "redirect:/login";
     }
+
 }
+
+//    @PostMapping("/signUp")
+//    public String addUser(User user, Map<String, Object> model) {
+//        User userFromDb = userRepo.findByEmail(user.getEmail());
+//
+////        if (userFromDb != null) {
+////            model.put("message", "User exists!");
+////            return "signUp";
+////        }
+//
+//        user.setRoles(Collections.singleton(Role.USER));
+//        userRepo.save(user);
+//
+//        return "redirect:/login";
+//    }

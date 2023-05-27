@@ -130,18 +130,40 @@
 </header>
 
 <#--<%--------------------Секция с содержанием меню--------------------%>-->
+<#--<section class="u-align-center u-black u-clearfix u-section-1">-->
+<#--    <img class="u-expand-resize u-expanded-width u-image u-image-1" src="../images/ch.jpeg" alt="Yes">-->
+<#--    <div class="text-white px-3 py-4 p-md-5 mx-md-4 container tekst_sverhu_kartinki" style="top: 10%; left: 9%">-->
+<#--        <h1 class="mb-4">Меню: </h1>-->
+<#--    </div>-->
+
+<#--    <div class="u-section-1 u-align-left u-container-style u-list-item  u-repeater-item u-shape-rectangle">-->
+<#--        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1 u-list-item-1 ">-->
+<#--            <h4> Подробная информация </h4><br>-->
+<#--            <b>Название: ${menu.name}</b><br>-->
+<#--            <b>Описание: ${menu.description}</b><br>-->
+<#--            <b>Цена: ${menu.price_per_price}</b><br>-->
+<#--        </div>-->
+<#--    </div>-->
+
+<#--    <p class="u-align-center u-text u-text-grey-30 u-text-19">Пекарня от-->
+<#--        <a href="https://vk.com/lambertl" class="u-border-1 u-border-white u-btn u-button-style u-none u-text-grey-30 u-btn-7">Ладушки</a>-->
+<#--    </p>-->
+<#--</section>-->
+
 
 <section class="u-align-center u-black u-clearfix" id="carousel_5156">
-    <div class="container">
-        <img class="u-expand-resize u-expanded-width u-image u-image-1" src="/images/wdq-min1.jpg" alt="Yes">
-        <p style="color: white"> <b> <b>Пекарня создана людьми, но кушают здесь только Боги! </b></b></p>
-        <div class="u-section-1 u-align-left u-container-style u-list-item  u-repeater-item u-shape-rectangle">
-            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1 u-list-item-1 ">
-                <h4> Подробная информация </h4><br>
-                <b>Название: ${menu.name}</b><br>
-                <b>Описание: ${menu.description}</b><br>
-                <b>Цена: ${menu.price_per_price}</b><br>
-            </div>
+    <img class="u-expand-resize u-expanded-width u-image u-image-1" src="/images/ch.jpeg" alt="Yes">
+    <p style="color: white"> <b> <b>Пекарня создана людьми, но кушают здесь только Боги! </b></b></p>
+        <div class="text-white px-3 py-4 p-md-5 mx-md-4 container tekst_sverhu_kartinki" style="top: 10%; left: 9%">
+            <h1 class="mb-4"> ${menu.name} </h1>
+        </div>
+
+    <div class="u-section-1 u-align-left u-container-style u-list-item  u-repeater-item u-shape-rectangle">
+        <div class="u-container-layout container u-similar-container u-valign-top u-container-layout-1 u-list-item-1 ">
+            <h4> Подробная информация: </h4><br>
+<#--            <b>Название: ${menu.name}</b><br>-->
+            <b>Описание: ${menu.description}</b><br>
+            <b>Цена: ${menu.price_per_price}</b><br>
         </div>
     </div>
 
@@ -230,7 +252,7 @@
     </div>
 </footer>
 <footer class="footer text-center podval1">
-    <p class="small mb-0">© ООО «Корпорация Bagels» Все права защищены 2022 </p>
+    <p class="small mb-0">© ООО «Корпорация Bagels» Все права защищены 2023 </p>
     <a href="https://github.com/lirummirul?tab=repositories" target="_blank">GitHub сайта</a>
     , создан при поддержке
     <a href="https://github.com/andreichev/itis-programming-java3" target="_blank">Михаила Дмитриевича</a>
