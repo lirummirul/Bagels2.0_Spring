@@ -266,74 +266,74 @@
 }u-expand-resize
 
 
- .u-image.u-logo {
-     display: table;
-     white-space: nowrap;
- }
-.u-image.u-logo img {
-    display: block;
-}
+/* .u-image.u-logo {*/
+/*     display: table;*/
+/*     white-space: nowrap;*/
+/* }*/
+/*.u-image.u-logo img {*/
+/*    display: block;*/
+/*}*/
 
-.u-image,
-.u-background-effect-image,
-.u-video-poster {
-    object-fit: cover;
-    display: block;
-    vertical-align: middle;
-    background-size: cover;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-}
-img.u-image,
-.u-video-poster {
-    overflow: hidden;
-}
-.u-back-image.u-image-contain,
-.u-image.u-image-contain {
-    object-fit: contain;
-    background-size: contain;
-}
-.u-back-image.u-image-tiles,
-.u-image.u-image-tiles {
-    background-size: initial;
-    background-repeat: repeat;
-    background-position: top left !important;
-}
-section.u-image:not(.u-hover-box),
-.u-sheet.u-image:not(.u-hover-box),
-.u-group.u-image:not(.u-hover-box),
-.u-layout-cell.u-image:not(.u-hover-box) {
-    overflow: visible;
-}
-.u-text .u-image {
-    display: inline-block;
-}
-.u-post-content .u-image {
-    margin-bottom: 0.5rem;
-}
-.u-image-circle.u-image {
-    border-radius: 50% !important;
-}
-.u-image-square {
-    border-radius: 0;
-}
+/*.u-image,*/
+/*.u-background-effect-image,*/
+/*.u-video-poster {*/
+/*    object-fit: cover;*/
+/*    display: block;*/
+/*    vertical-align: middle;*/
+/*    background-size: cover;*/
+/*    background-position: 50% 50%;*/
+/*    background-repeat: no-repeat;*/
+/*}*/
+/*img.u-image,*/
+/*.u-video-poster {*/
+/*    overflow: hidden;*/
+/*}*/
+/*.u-back-image.u-image-contain,*/
+/*.u-image.u-image-contain {*/
+/*    object-fit: contain;*/
+/*    background-size: contain;*/
+/*}*/
+/*.u-back-image.u-image-tiles,*/
+/*.u-image.u-image-tiles {*/
+/*    background-size: initial;*/
+/*    background-repeat: repeat;*/
+/*    background-position: top left !important;*/
+/*}*/
+/*section.u-image:not(.u-hover-box),*/
+/*.u-sheet.u-image:not(.u-hover-box),*/
+/*.u-group.u-image:not(.u-hover-box),*/
+/*.u-layout-cell.u-image:not(.u-hover-box) {*/
+/*    overflow: visible;*/
+/*}*/
+/*.u-text .u-image {*/
+/*    display: inline-block;*/
+/*}*/
+/*.u-post-content .u-image {*/
+/*    margin-bottom: 0.5rem;*/
+/*}*/
+/*.u-image-circle.u-image {*/
+/*    border-radius: 50% !important;*/
+/*}*/
+/*.u-image-square {*/
+/*    border-radius: 0;*/
+/*}*/
 
-.u-sheet:not(.u-image):not(.u-video) {
-    pointer-events: none;
-}
-.u-sheet:not(.u-image):not(.u-video) > * {
-    pointer-events: auto;
-    pointer-events: initial;
-}
-.u-lightbox .u-image,
-.u-lightbox .u-gallery-item {
-    cursor: pointer;
-}
-.u-overlap.u-overlap-transparent .u-header,
-.u-image,
-.u-gradient {
-    color: #111111;
-}
+/*.u-sheet:not(.u-image):not(.u-video) {*/
+/*    pointer-events: none;*/
+/*}*/
+/*.u-sheet:not(.u-image):not(.u-video) > * {*/
+/*    pointer-events: auto;*/
+/*    pointer-events: initial;*/
+/*}*/
+/*.u-lightbox .u-image,*/
+/*.u-lightbox .u-gallery-item {*/
+/*    cursor: pointer;*/
+/*}*/
+/*.u-overlap.u-overlap-transparent .u-header,*/
+/*.u-image,*/
+/*.u-gradient {*/
+/*    color: #111111;*/
+/*}*/
 
 
 /** color-rules **/
@@ -925,16 +925,4 @@ div#tekst_sverhu_kartinki {
      font-size: 18px;
      transition: 0.6s ease;
      border-radius: 0 3px 3px 0;
- }
-
- .fade {
-
- }
-
- .mySlaides {
-
- }
-
- .numverText {
-
  }

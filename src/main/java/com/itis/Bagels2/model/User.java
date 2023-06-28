@@ -39,6 +39,11 @@ public class User implements UserDetails {
     private List<Menu> menus = new ArrayList<>();
 
     //================================= Security============================
+
+    public boolean isAdmin() {
+        return roles.contains(Role.ADMIN);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;
@@ -46,7 +51,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return email;
+        return username;
     }
 
     @Override

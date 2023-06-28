@@ -432,8 +432,8 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="phone_num" maxlength="32" required id="phoneNum"
-                                               placeholder="phoneNum">
+                                        <input type="text" class="form-control" name="phone_num" maxlength="32" required id="phone_num"
+                                               placeholder="phone number">
                                         <div id="username_validation"><i class="fa fa-user"></i></div>
                                     </div>
 

@@ -2,6 +2,7 @@ package com.itis.Bagels2.repos;
 
 import com.itis.Bagels2.model.Menu;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

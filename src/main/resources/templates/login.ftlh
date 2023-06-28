@@ -166,7 +166,7 @@
 <html lang="ru">
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="../auth.css" media="screen">;
+    <link rel="stylesheet" href="../auth.css" media="screen">
     <title>Bagels</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
@@ -309,20 +309,29 @@
                                 <div class="text-center">
                                     <h4 class="mt-1 mb-5 pb-1">Авторизация</h4>
                                 </div>
-                                <form class="form-horizontal" action="/login" method="post">
-
+                                <#if error?has_content>
+                                    <div class="text-danger">
+                                        Wrong username-password.
+                                    </div>
+                                </#if>
+                                <form class="form-horizontal" action="/login" method="POST">
 <#--                                    <if auth_error??>-->
 <#--                                        <div style="width: 100%; position: relative; padding-bottom: 25px; color: red">${auth_error}</div>-->
 <#--                                    </if>-->
                                     <input type="hidden" name="_csrf" value="${_csrf.token}">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="email" autofocus="" autocapitalize="none" autocomplete="email" maxlength="150" id="email" placeholder="email">
+                                        <input type="text" class="form-control" name="username" autocapitalize="none" autocomplete="username" maxlength="32" id="username" placeholder="username">
                                         <i class="fa fa-user"></i>
                                     </div>
                                     <div class="form-group help">
                                         <input type="password" name="password" class="form-control" autocomplete="current-password" required="" id="id_password" placeholder="password">
                                         <i class="fa fa-lock"></i>
                                     </div>
+
+                                    <#if errorMessage??>
+                                        <h2 style="color: red">${errorMessage}</h2>
+                                    </#if>
+
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" id="id_button">Войти</button>
                                     </div>

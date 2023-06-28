@@ -25,8 +25,8 @@ public class Menu {
     @JoinColumn
     private User user;
 
-//    public Menu() {
-//    }
+//    public Menu() { } // у меня этот пустой конструктор не требуется из-за анотации @NoArgsConstructor
+//
 //
 //    public Long getId() {
 //        return this.id;

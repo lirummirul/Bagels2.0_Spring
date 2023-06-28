@@ -61,53 +61,64 @@
     }
 </style>
 
+
+
 <body data-home-page="main.ftlh" data-home-page-title="Главная" class="u-body u-xl-mode" data-lang="ru">
+<#--<body onload="document.getElementById('navbarDropdown').click(); document.getElementById('navbarDropdown').blur()">-->
+
 
 <#--<%-------------------- Голова, белая полосака с логотипом и страничками --------------------%>-->
 
-<header class="u-clearfix u-header u-header" id="sec-9f1a">
-    <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-
-        <br>
-        <img src="/images/bagels.png" class="u-logo-image u-logo-image-1" alt="Yes">
-        <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
-            <div class="u-nav-container">
-                <ul class="u-nav u-unstyled u-nav-1">
-                    <li class="u-nav-item">
-                        <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/main" style="padding: 10px 20px; color: black">Главная</a>
-                    </li>
-                    <li class="u-nav-item">
-                        <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/about" style="padding: 10px 20px; color: black">О нас</a>
-                    </li>
-                    <li class="u-nav-item">
-                        <a class="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="/basket" style="padding: 10px 20px; color: black">Корзина</a>
-                    </li>
-                    <#if user.email??>
-                        <h3>Имя пользователя: <i>${user.name}</i></h3>
-                        <form action="/logout" method="post">
-                            <input type="hidden" name="_csrf" value="${_csrf.token}">
-                            <input type="submit" value="Выйти"/>
-                        </form>
-                    <#else>
-                        <a href="/login">Войти</a>
-                    </#if>
-                </ul>
+<nav class="navbar sticky-top navbar-light bg-light navbar-expand-md">
+    <a href="/" class="navbar-brand">Bagels</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <#if (user.username)??>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">Меню</a></li>
+                <li class="nav-item"><a class="nav-link" href="/basket">Корзина</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about">О нас</a></li>
+            </ul>
+            <div class="nav-item dropdown ml-auto">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">
+                    ${user.username}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a style="text-decoration: underline" href="/about"
+                       class="dropdown-item">${user.username}</a>
+                    <div class="dropdown-divider"></div>
+                    <a style="color:red" href="/logout" class="dropdown-item">Выйти</a>
+                </div>
             </div>
-        </nav>
-    </div>
-</header>
+        </div>
+    <#else>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/">Меню</a></li>
+            </ul>
+            <a href="/login" class="nav-link ml-auto">Войти</a>
+        </div>
+    </#if>
+</nav>
+
 
 
 <#--<%--------------------Секция с содержанием меню--------------------%>-->
 
 <section class="u-align-center u-black u-clearfix" id="carousel_5156">
     <img class="u-expand-resize u-expanded-width u-image u-image-1" src="/images/wdq-min1.jpg" alt="Yes">
-    <p style="color: white"> <b> <b>Пекарня создана людьми, но кушают здесь только Боги! </b></b></p>
-    <div class="text-white px-3 py-4 p-md-5 mx-md-4 container tekst_sverhu_kartinki" style="top: 10%; left: 9%">
-        <h1 class="mb-4">Меню: </h1>
-    </div>
-    <div class="u-section-1 u-align-left u-container-style u-list-item  u-repeater-item u-shape-rectangle">
-        <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1 u-list-item-1 ">
+    <div class="cvadrMain">
+<#--        <p style="color: white"> <b> <b>Пекарня создана людьми, но кушают здесь только Боги! </b></b></p>-->
+        <div class="text-white px-3 py-4 p-md-5 mx-md-4 container tekst_sverhu_kartinki" style="top: 10%; left: 1%">
+            <h1 class="mb-4">Меню: </h1>
+        </div>
+        <div class="u-section-1 u-align-left u-container-style u-list-item  u-repeater-item u-shape-rectangle">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1 u-list-item-1 ">
+
             <#list menuList as menu>
                 <div class="u-align-center u-border-radius-50 u-container-style u-group u-opacity u-opacity-45 u-palette-5-dark-1 u-shape-round u-group-1">
                     <div class="u-container-layout u-valign-middle u-container-layout-2">
@@ -119,6 +130,10 @@
                 <a href="/main/${menu.id}" class="u-active-none u-border-2 u-border-active-white u-border-hover-white u-border-white u-btn u-button-style u-hover-none u-none u-text-body-alt-color u-text-hover-grey-30 u-btn-1">learn more</a>
                 <br>
             </#list>
+            </div>
+        </div>
+    </div>
+
 
 <#--            <#if usr.id == user_role.id && user_role == "ADMIN">-->
 <#--                <hr>-->
@@ -131,15 +146,20 @@
 <#--                    <input type="submit" value="Добавить товар"/>-->
 <#--                </form>-->
 <#--            </#if>-->
-        </div>
-    </div>
-    <p class="u-align-center u-text u-text-grey-30 u-text-19">Пекарня от
-        <a href="https://vk.com/lambertl" class="u-border-1 u-border-white u-btn u-button-style u-none u-text-grey-30 u-btn-7">Ладушки</a>
-    </p>
+
 </section>
 
+<#--<section class="u-align-center u-black u-clearfix" id="carousel_5156">-->
+<#--    <img class="u-expand-resize u-expanded-width u-image u-image-1" src="/images/black.png" alt="Yes">-->
+<#--    <div class="cvadrMain">-->
+<#--        <p class="u-align-center u-text u-text-grey-30 u-text-19">Пекарня от-->
+<#--            <a href="https://vk.com/lambertl" class="u-border-1 u-border-white u-btn u-button-style u-none u-text-grey-30 u-btn-7">Ладушки</a>-->
+<#--        </p>-->
+<#--    </div>-->
+<#--</section>-->
 
-<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-c4fa">
+
+<footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer u-black" id="sec-c4fa">
     <div class="u-clearfix u-sheet u-sheet-1">
         <p style="line-height: 0.005" lang="ru" xml:lang="ru" class="u-small-text u-text u-text-variant u-text-1"><big>Рай для диабетиков, реальность для тебя.</big></p>
     </div>

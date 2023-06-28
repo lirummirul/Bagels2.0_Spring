@@ -29,14 +29,12 @@ public class MenuService {
     public void saveMenu(Principal principal, Menu menu) throws IOException {
         menu.setUser(getUserByPrincipal(principal));
         log.info("Saving new Product. Title: {}; Author email: {}", menu.getName(), menu.getUser().getEmail());
-//        Menu menuFromDb = userRepo.save(menu);
-//        log.info("Saving new {}", menu);
         menuRepo.save(menu);
     }
 
     public User getUserByPrincipal(Principal principal) {
         if (principal == null) return new User();
-        return userRepo.findByEmail(principal.getName());
+        return userRepo.findByUsername(principal.getName());
     }
 
 
